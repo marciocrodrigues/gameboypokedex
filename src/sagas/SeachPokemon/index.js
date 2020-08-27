@@ -1,23 +1,40 @@
-import { all, call, put,takeLatest } from 'redux-saga/effects';
+import { all, call, put,takeLatest, delay } from 'redux-saga/effects';
 import api from '../../services/api';
 
 import {
-  SeachPokemonSuccess
+  SearchPokemonSuccess,
+  SearchPokemonFailure
 } from '../../actions/SearchPokemon';
 
-function* SeachPokemon(data){
-  const result = yield call(api.get, `/pokemon/${data.params}`)
-  const { name, sprites, types } = result.data;
-  const { front_default } = sprites;
+function* SearchPokemon(data){
+  
+  let pokemon = {
+    name: '',
+    front_default: ''
+  }
 
-  const pokemon = {
-    name,
-    front_default
-  };
-
-  yield put(SeachPokemonSuccess(pokemon));
+  try {
+    const result = yield call(api.get, `/pokemon/${data.params}`)
+    
+    const { status } = result.request
+  
+    if(status === 200) {
+      
+      const { name, sprites, types } = result.data;
+      const { front_default } = sprites;
+  
+      pokemon = {
+        name,
+        front_default
+      };
+     
+      yield put(SearchPokemonSuccess(pokemon));
+    }
+  } catch(error) {
+    yield put(SearchPokemonFailure(pokemon));
+  }
 }
 
 export default all([
-  takeLatest('SEACH_POKEMON_REQUEST', SeachPokemon)
+  takeLatest('SEARCH_POKEMON_REQUEST', SearchPokemon)
 ])

@@ -2,7 +2,7 @@ import React,{ useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  SeachPokemonRequest
+  SearchPokemonRequest
 } from '../../actions/SearchPokemon';
 
 import Input from '../Input';
@@ -32,7 +32,7 @@ const Screen = () => {
   }
 
   function SearchPokemon() {
-    dispatch(SeachPokemonRequest(name));
+    dispatch(SearchPokemonRequest(name));
   }
   
   return (

@@ -1,13 +1,20 @@
-export function SeachPokemonRequest(params){
+export function SearchPokemonRequest(params){
   return {
-    type: "SEACH_POKEMON_REQUEST",
+    type: 'SEARCH_POKEMON_REQUEST',
     params
   }
 }
 
-export function SeachPokemonSuccess(data){
+export function SearchPokemonSuccess(data){
   return {
-    type: 'SEACH_POKEMON_SUCCESS',
+    type: 'SEARCH_POKEMON_SUCCESS',
+    pokemon: data
+  }
+}
+
+export function SearchPokemonFailure(data){
+  return {
+    type: 'SEARCH_POKEMON_FAILURE',
     pokemon: data
   }
 }
