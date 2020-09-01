@@ -1,7 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 
+import FontTTF from './assets/font-nintendo.ttf';
+
 export const GlobalStyle = createGlobalStyle`
 	
+	@font-face {
+		font-family: 'Press Start 2P' ;
+		src: url(${FontTTF}) format('truetype');
+		font-style: normal;
+		font-display: auto;
+	}
+
 	* {
 		margin: 0;
 		padding: 0;

@@ -22,10 +22,11 @@ function* SearchPokemon(data){
       
       const { name, sprites, types } = result.data;
       const { front_default } = sprites;
-  
+      
       pokemon = {
         name,
-        front_default
+        front_default,
+        types
       };
      
       yield put(SearchPokemonSuccess(pokemon));

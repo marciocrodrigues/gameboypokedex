@@ -8,7 +8,7 @@ export const InputSearch = styled.input`
   border: none;
   border-bottom: 1px solid #FFF;
   font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
+  font-size: 10px;
   height: 12px;
   background-color: #bdae58;
   color: #FFF;
@@ -19,7 +19,7 @@ export const Label = styled.label`
   margin-top: 10px;
   margin-left: 10px;
   font-family: 'Press Start 2P', monospace;
-  font-size: 12px;
+  font-size: 10px;
   height: 12px;
   color: #FFF
 `;

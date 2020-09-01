@@ -8,14 +8,16 @@ import {
 import Input from '../Input';
 
 import {
-  Container
+  Container,
+  NamePokemon,
+  TypePokemon
 } from './styles';
 
 const Screen = () => {
   const pokemon = useSelector(state => state.SeachPokemonReducer)
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [info, setInfo] = useState({name: '', front_default: '' })
+  const [info, setInfo] = useState({name: '', front_default: '', types: [] })
 
   useEffect(() => {
     UpdateInfo(pokemon)
@@ -23,10 +25,11 @@ const Screen = () => {
 
   function UpdateInfo(data) {
     if(data.pokemon !== null) {
-      const { front_default, name } = data.pokemon
+      const { front_default, name, types } = data.pokemon
       setInfo({
         name,
-        front_default
+        front_default,
+        types
       })
     }
   }
@@ -37,17 +40,26 @@ const Screen = () => {
   
   return (
     <Container>
-      <Input Search={SearchPokemon} ChangeValue={(e) => setName(e.target.value)} />
+      <Input Search={SearchPokemon} ChangeValue={(e) => setName(e.target.value.toLowerCase())} />
       {
         info.name !== '' && (
-          <>
-            <div>
-              {info.name}
-            </div>
-            <div>
+          <div className="ContainerInfo">
+            <div className="ImgPokemon">
               <img src={info.front_default} alt=""/>
             </div>
-          </>
+            <div className="InfoPokemon">
+              <NamePokemon className="NamePokemon">Name: {info.name}</NamePokemon>
+              {
+                info.types.map(item => {
+                  return (
+                    <TypePokemon className="TypePokemon" key={item.type.name}>
+                     Type: { item.type.name }
+                    </TypePokemon>
+                  )
+                })
+              }
+            </div>
+          </div>
         )
       }
     </Container>
