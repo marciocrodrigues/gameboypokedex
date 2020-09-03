@@ -8,9 +8,7 @@ import {
 import Input from '../Input';
 
 import {
-  Container,
-  NamePokemon,
-  TypePokemon
+  Container
 } from './styles';
 
 const Screen = () => {
@@ -41,6 +39,7 @@ const Screen = () => {
   return (
     <Container>
       <Input Search={SearchPokemon} ChangeValue={(e) => setName(e.target.value.toLowerCase())} />
+      <div data-testid="info-pokemon">
       {
         info.name !== '' && (
           <div className="ContainerInfo">
@@ -48,13 +47,13 @@ const Screen = () => {
               <img src={info.front_default} alt=""/>
             </div>
             <div className="InfoPokemon">
-              <NamePokemon className="NamePokemon">Name: {info.name}</NamePokemon>
+              <div className="NamePokemon">Name: {info.name}</div>
               {
                 info.types.map(item => {
                   return (
-                    <TypePokemon className="TypePokemon" key={item.type.name}>
+                    <div className="TypePokemon" key={item.type.name}>
                      Type: { item.type.name }
-                    </TypePokemon>
+                    </div>
                   )
                 })
               }
@@ -62,6 +61,7 @@ const Screen = () => {
           </div>
         )
       }
+      </div>
     </Container>
   )
 }

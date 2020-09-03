@@ -6,7 +6,7 @@ import {
   SearchPokemonFailure
 } from '../../actions/SearchPokemon';
 
-function* SearchPokemon(data){
+export function* SearchPokemon(data){
   
   let pokemon = {
     name: '',

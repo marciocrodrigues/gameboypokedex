@@ -12,7 +12,7 @@ const Input = ({
   return (
     <>
       <Label htmlFor="searchpokemon" >Pokémon</Label>
-      <InputSearch name="searchpokemon" onBlur={Search} onChange={ChangeValue}/>
+      <InputSearch data-testid="search-pokemon" name="searchpokemon" onBlur={Search} onChange={ChangeValue}/>
     </>
   )
 }

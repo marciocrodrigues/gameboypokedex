@@ -5,6 +5,9 @@ export const Container = styled.div`
   position: relative;
   margin-top: 90px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BtnControl = styled.div`
@@ -17,7 +20,7 @@ export const BtnControl = styled.div`
     position: absolute;
     z-index: 1;
     top: 30px;
-    left: 30px;
+    left: 0px;
     width: 30px;
     height: 30px;
     background-color: #353535;
@@ -27,37 +30,11 @@ export const BtnControl = styled.div`
   .BtnVertical,
   .BtnHorizontal{
     position: absolute;
-    left: 30px;
+    left: 0px;
     width: 30px;
     height: 90px;
     background: #444;
     border-radius: 5px;
-  }
-
-  .BtnVertical:before,
-  .BtnHorizontal:before {
-    content: "";
-    position: relative;
-    top: 99px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid #dedede;
-  }
-
-  .BtnVertical:after,
-  .BtnHorizontal:after {
-    content: "";
-    position: relative;
-    top: -27px;
-    left: -5.6px;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #dedede;
   }
 
   .BtnHorizontal {
@@ -66,5 +43,29 @@ export const BtnControl = styled.div`
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
+  }
+
+  .ButtonAB {
+    position: relative;
+    margin-left: 250px;
+    margin-top: 10px;
+    width: 20px;
+    height: 25px;
+    background: #4169E1;
+    border-radius: 30px;
+    -webkit-trasnform: rotate(-25deg);
+  }
+
+  .ButtonAB:after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 44px;
+    height: 44px;
+    background: #a93671;
+    box-shadow: 68px 0 #a93671;
+    border-radius: 100%;
+    -webkit-transform: rotate(180deg);
   }
 `;

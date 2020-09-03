@@ -19,12 +19,12 @@ export const Container = styled.div`
     font-family: 'Press Start 2P', monospace;
     font-size: 10px;
   }
+
+  .NamePokemon {
+    margin-top: 10px;
+  }
+
+  .TypePokemon {
+    margin-top: 10px;
+  }
 `;
-
-export const NamePokemon = styled.div`
-  margin-top: 10px;
-`
-
-export const TypePokemon = styled.div`
-  margin-top: 10px;
-`

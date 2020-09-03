@@ -11,6 +11,8 @@ const Control = () => {
       <BtnControl>
         <div className="BtnVertical"></div>
         <div className="BtnHorizontal"></div>
+        <div className="BtnStartSelect"></div>
+        <div className="ButtonAB"></div>
       </BtnControl>
     </Container>
   );
